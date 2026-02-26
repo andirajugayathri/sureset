@@ -11,6 +11,10 @@ body {
     overflow-x: hidden;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 .hero-carousel {
     position: relative;
 }
@@ -284,6 +288,7 @@ body {
 
 .navbar-container {
     max-width: 1400px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 15px;
 }
@@ -383,7 +388,6 @@ body {
 .dropdown-submenu>a::after {
     display: block;
     margin-left: auto;
-    vertical-align: middle;
     content: "";
     border-top: .3em solid transparent;
     border-right: 0;
@@ -459,6 +463,19 @@ body {
         display: flex;
     }
 
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding-left: 20px;
+        background-color: transparent;
+        width: 100%;
+    }
+
+    .dropdown:hover>.dropdown-menu {
+        display: block;
+    }
+
     .navbar-toggle {
         display: block;
         z-index: 10000;
@@ -477,6 +494,14 @@ body {
     .topbar-content {
         flex-direction: column;
         gap: 15px;
+    }
+
+    .sub-hero {
+        text-align: center;
+    }
+
+    .sub-hero-breadcrumb {
+        justify-content: center;
     }
 }
 
@@ -774,6 +799,7 @@ body {
 
     .navbar-menu.navbar-menu-active {
         display: flex;
+        align-items: flex-start;
     }
 
     .navbar-toggle {
@@ -1645,6 +1671,10 @@ body {
 
     .vas-contact-icon {
         margin: 0 auto 15px;
+    }
+
+    .sub-hero-title {
+        text-align: center;
     }
 }
 

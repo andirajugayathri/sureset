@@ -947,11 +947,32 @@
             transition-delay: 0.3s;
         }
 
+        .protection-profile-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
         /* ─── RESPONSIVE ──────────────────────────────────────── */
         @media (max-width: 900px) {
             .hero {
                 grid-template-columns: 1fr;
-                padding-top: 100px;
+                padding-top: 60px;
+            }
+
+            .hero-text {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .sub-hero-title {
+                text-align: center;
+            }
+
+            .hero-actions {
+                justify-content: center;
             }
 
             .hero-visual {
@@ -984,6 +1005,11 @@
 
             .compat-layout {
                 grid-template-columns: 1fr;
+            }
+
+            .protection-profile-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
 
             nav .nav-links {
@@ -1051,7 +1077,7 @@
                         </ul>
                     </li>
                     <li class="navbar-menu-item dropdown">
-                        <a href="resourses.html" class="navbar-menu-link">Resourses</a>
+                        <a href="resources.html" class="navbar-menu-link">Resources</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="ifu.html" target="_blank">IFU</a></li>
                             <li><a class="dropdown-item" href="#" target="_blank">Brochures</a></li>
@@ -1299,7 +1325,7 @@
 
     <!-- TIMELINE / RELEASE PROFILE -->
     <section style="background:var(--white); padding: 80px 5vw;">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;">
+        <div class="protection-profile-layout">
             <div>
                 <div class="section-label">Protection profile</div>
                 <h2>Consistent coverage<br>from <em style="color:var(--teal)">day one<br>to day ten.</em></h2>
@@ -1477,7 +1503,7 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="dpncheck-overview.html">Our Products</a></li>
-                        <li><a href="resourses.html">Resources</a></li>
+                        <li><a href="resources.html">Resources</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
