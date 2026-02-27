@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alera Medtech</title>
+    <title>SureSet </title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
@@ -20,7 +20,7 @@
 
             <div class="form-header">
                 <h1 id="headerTitle">Request Evaluation Samples</h1>
-                <p id="headerSubtitle">Complete the form below to receive Alera Medtech evaluation samples</p>
+                <p id="headerSubtitle">Complete the form below to receive SureSet™ evaluation samples</p>
             </div>
 
             <div class="form-body">
@@ -64,11 +64,10 @@
                             <label for="productType">Product Type <span class="required">*</span></label>
                             <select id="productType" name="productType" required>
                                 <option value="">-- Select Product Type --</option>
-                                <option value="sureset-peripheral-iv">Alera Medtech Peripheral IV Securement Device
-                                </option>
-                                <option value="sureset-picc">Alera Medtech PICC Line Securement</option>
-                                <option value="sureset-central-line">Alera Medtech Central Line Securement</option>
-                                <option value="sureset-dialysis">Alera Medtech Dialysis Catheter Securement</option>
+                                <option value="sureset-peripheral-iv">SureSet™ Peripheral IV Securement Device</option>
+                                <option value="sureset-picc">SureSet™ PICC Line Securement</option>
+                                <option value="sureset-central-line">SureSet™ Central Line Securement</option>
+                                <option value="sureset-dialysis">SureSet™ Dialysis Catheter Securement</option>
                                 <option value="multiple">Multiple Products</option>
                             </select>
                             <span class="error-message" id="productTypeError">Please select a product type</span>
@@ -119,6 +118,15 @@
                                 </svg>
                                 Download Clinical Guide
                             </a> -->
+                            <a href="pdf/Sureset_Vascular Acess Safety.pdf" class="download-btn secondary-btn"
+                                target="_blank">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                    </path>
+                                </svg>
+                                Download Full Product Catalog
+                            </a>
                         </div>
                     </div>
 
@@ -130,7 +138,7 @@
 
     <script>
         const modal = document.getElementById('modalOverlay');
-        const openBtn = document.getElementById('openModalBtn');
+        // openBtn removed for event delegation
         const closeBtn = document.getElementById('closeModalBtn');
         const form = document.getElementById('evaluationForm');
         const formContent = document.getElementById('formContent');
@@ -140,10 +148,12 @@
         const invalidEmailDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com', 'icloud.com', 'mail.com', 'protonmail.com', 'yandex.com', 'zoho.com'];
 
         // Open Modal
-        openBtn.addEventListener('click', () => {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            showForm();
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('#openModalBtn') || e.target.closest('.open-modal-btn')) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                showForm();
+            }
         });
 
         // Close Modal
@@ -173,7 +183,7 @@
             formContent.classList.remove('hidden');
             thankYouContent.classList.remove('active');
             headerTitle.textContent = 'Request Evaluation Samples';
-            headerSubtitle.textContent = 'Complete the form below to receive Alera Medtech evaluation samples';
+            headerSubtitle.textContent = 'Complete the form below to receive SureSet™ evaluation samples';
         }
 
         // Show Thank You Page
@@ -373,7 +383,7 @@
                             <h1>Securement<br>Re-Engineered<br>for Modern Care</h1>
                             <p>SafeTrak™ Strain-Relief Technology delivers unmatched stability, reduced dislodgement,
                                 and improved comfort for every patient, in every setting.</p>
-                            <button class="cta-button">Request Evaluation Samples</button>
+                            <button class="cta-button open-modal-btn">Request Evaluation Samples</button>
                         </div>
                         <div class="image-content">
                             <img src="img/banner-1.png" alt="Medical Care" class="hero-image">
@@ -438,7 +448,7 @@
                     <div class="hero-badge">Access. Organize. Secure.</div>
                     <h1 class="hero-main-heading">Redefining Catheter Securement and Site Management</h1>
                     <p class="hero-description">
-                        The Alera Medtech Safe-Track Strain Relief Technology™ creates a streamlined
+                        The SureSet™ Safe-Track Strain Relief Technology™ creates a streamlined
                         system to reliably stabilize the PIV catheter and organize the infusion tubing.
                     </p>
 
@@ -463,13 +473,13 @@
                         </div>
                     </div>
 
-                    <a href="about.html" class="hero-cta-button">Know More</a>
+                    <a href="#" class="hero-cta-button">Know More</a>
                 </div>
 
                 <div class="hero-right-content">
                     <a href="#" class="watch-video-link"
                         data-video="https://suresetsecure.com/wp-content/uploads/2025/11/SureSet-gif-SD-480p-udated-logo.mp4">
-                        <img src="img/about.png" alt="Alera Medtech Product" class="hero-product-image">
+                        <img src="img/about.png" alt="SureSet Product" class="hero-product-image">
                     </a>
                 </div>
             </div>
@@ -514,7 +524,7 @@
             <div class="safetrak-content-grid">
                 <div class="safetrak-text-wrapper">
                     <p class="safetrak-description-para">
-                        Alera Medtech SafeTrak™ Strain Relief Technology represents an innovative
+                        SureSet™ SafeTrak™ Strain Relief Technology represents an innovative
                         approach to vascular access securement by focusing on the entire catheter
                         pathway. Traditional securement typically focuses on the catheter hub, leaving
                         the tubing exposed—where most accidental tension occurs.
@@ -543,9 +553,9 @@
                 </div>
 
                 <div class="benefits-text-area">
-                    <h2 class="benefits-main-heading">The Benefits of Stabilization Devices Like Alera Medtech</h2>
+                    <h2 class="benefits-main-heading">The Benefits of Stabilization Devices Like SureSet™</h2>
                     <p class="benefits-intro-text">
-                        The Alera Medtech Safe-Track Strain Relief Technology™ creates a streamlined
+                        The SureSet™ Safe-Track Strain Relief Technology™ creates a streamlined
                         system to reliably stabilize the PIV catheter and organize the infusion tubing.
                     </p>
 
@@ -578,10 +588,10 @@
         <div class="introducing-container">
             <div class="introducing-layout-grid">
                 <div class="introducing-left-content">
-                    <h2 class="introducing-main-title">Introducing the Alera Medtech Peripheral IV Device</h2>
+                    <h2 class="introducing-main-title">Introducing the SureSet™ Peripheral IV Device</h2>
                     <p class="introducing-subtitle-text">
                         Our innovative <strong>Safe-Track Strain Relief Technology™</strong> makes
-                        Alera Medtech unlike any other IV securement device.
+                        SureSet™ unlike any other IV securement device.
                     </p>
 
                     <ul class="introducing-features-list">
@@ -636,8 +646,7 @@
             <h1 class="vas-hero-title">A New Approach to Safe, Stable<br>Vascular Access</h1>
             <p class="vas-hero-subtitle">(Client content, placed after the benefits)</p>
             <p class="vas-hero-description">
-                Alera Medtech SafeTrak™ introduces a solution for vascular access securement using flexible
-                motion-control
+                SureSet™ SafeTrak™ introduces a solution for vascular access securement using flexible motion-control
                 geometry and a secure, low-profile anchoring system. This proprietary design absorbs tension before it
                 reaches the catheter hub, reducing dislodgement, minimizing micro-motion, and maintaining consistent
                 catheter alignment.
@@ -720,12 +729,12 @@
                             </div>
                             <div class="col-12 col-md-8">
                                 <p class="vas-stab-description">
-                                    Alera Medtech helps protect the catheter pathway by absorbing and controlling tubing
+                                    SureSet™ helps protect the catheter pathway by absorbing and controlling tubing
                                     movement. The result is improved stability, reduced complications, and a more
                                     consistent
                                     experience for both clinicians and patients.
                                 </p>
-                                <a href="about.html" class="vas-explore-btn">Explore More</a>
+                                <button class="vas-explore-btn">Explore More</button>
                             </div>
                         </div>
 
@@ -741,13 +750,12 @@
                                 </div>
                                 <h3 class="vas-benefit-title">Simple Applications</h3>
                                 <p class="vas-benefit-text">
-                                    Alera Medtech is applied to a standard protective dressing, allowing an easy and
-                                    fast
+                                    SureSet™ is applied to a standard protective dressing, allowing an easy and fast
                                     setup of the infusion site.
                                 </p>
                             </div>
                         </div>
-                        <div class="col-12 col-md mb-4 mt-md-4">
+                        <div class="col-12 col-md mb-4">
                             <div class="vas-benefit-card h-100">
                                 <div class="vas-benefit-icon">
                                     <img src="img/imp-2.png" alt="">
@@ -762,19 +770,19 @@
 
                     </div>
                     <div class="row">
-                        <div class="col-12 col-md mb-4 ms-md-4">
+                        <div class="col-12 col-md mb-4">
                             <div class="vas-benefit-card h-100">
                                 <div class="vas-benefit-icon">
                                     <img src="img/imp-3.png" alt="">
                                 </div>
                                 <h3 class="vas-benefit-title">A Consistent</h3>
                                 <p class="vas-benefit-text">
-                                    Alera Medtech uniform method uses fewer adhesives on the skin, resulting in less
+                                    SureSet's uniform method uses fewer adhesives on the skin, resulting in less
                                     variability, increased safety, and improved patient comfort and satisfaction.
                                 </p>
                             </div>
                         </div>
-                        <div class="col-12 col-md mb-4 mt-md-5">
+                        <div class="col-12 col-md mb-4">
                             <div class="vas-benefit-card h-100">
                                 <div class="vas-benefit-icon">
                                     <img src="img/imp-4.png" alt="">
@@ -791,7 +799,9 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <div id="footer-placeholder"></div>
+    <script src="js/components.js"></script>
 
     <!-- Video Modal -->
     <div id="videoModal" class="video-modal" aria-hidden="true" style="display:none;">
@@ -811,9 +821,56 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Video modal behavior
+        (function () {
+            const links = document.querySelectorAll('.watch-video-link');
+            const modal = document.getElementById('videoModal');
+            const overlay = modal && modal.querySelector('.video-modal-overlay');
+            const modalVideo = document.getElementById('modalVideo');
+            const closeBtn = document.getElementById('videoModalClose');
+
+            function openModal(src) {
+                if (!modal) return;
+                const source = modalVideo.querySelector('source');
+                source.src = src;
+                modalVideo.load();
+                modal.style.display = 'block';
+                modal.setAttribute('aria-hidden', 'false');
+                try { modalVideo.play(); } catch (e) { }
+            }
+
+            function closeModal() {
+                if (!modal) return;
+                modalVideo.pause();
+                try { modalVideo.currentTime = 0; } catch (e) { }
+                const source = modalVideo.querySelector('source');
+                source.src = '';
+                modalVideo.load();
+                modal.style.display = 'none';
+                modal.setAttribute('aria-hidden', 'true');
+            }
+
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const src = this.getAttribute('data-video');
+                    if (src) openModal(src);
+                });
+            });
+
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+            if (overlay) overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) closeModal();
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal && modal.style.display === 'block') closeModal();
+            });
+        })();
+    </script>
     
-<script src="js/components.js"></script>
 </body>
 
 </html>
-

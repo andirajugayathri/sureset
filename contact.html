@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alera Medtech </title>
+    <title>SureSet </title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
@@ -21,7 +21,7 @@
 
             <div class="form-header">
                 <h1 id="headerTitle">Request Evaluation Samples</h1>
-                <p id="headerSubtitle">Complete the form below to receive Alera Medtech evaluation samples</p>
+                <p id="headerSubtitle">Complete the form below to receive SureSet™ evaluation samples</p>
             </div>
 
             <div class="form-body">
@@ -64,11 +64,10 @@
                             <label for="productType">Product Type <span class="required">*</span></label>
                             <select id="productType" name="productType" required>
                                 <option value="">-- Select Product Type --</option>
-                                <option value="sureset-peripheral-iv">Alera Medtech Peripheral IV Securement Device
-                                </option>
-                                <option value="sureset-picc">Alera Medtech PICC Line Securement</option>
-                                <option value="sureset-central-line">Alera Medtech Central Line Securement</option>
-                                <option value="sureset-dialysis">Alera Medtech Dialysis Catheter Securement</option>
+                                <option value="sureset-peripheral-iv">SureSet™ Peripheral IV Securement Device</option>
+                                <option value="sureset-picc">SureSet™ PICC Line Securement</option>
+                                <option value="sureset-central-line">SureSet™ Central Line Securement</option>
+                                <option value="sureset-dialysis">SureSet™ Dialysis Catheter Securement</option>
                                 <option value="multiple">Multiple Products</option>
                             </select>
                             <span class="error-message" id="productTypeError">Please select a product type</span>
@@ -103,6 +102,20 @@
                     <h2>Thank You!</h2>
                     <p>Your request has been submitted successfully. Our team will contact you within 24-48 hours.</p>
 
+                    <div class="download-section">
+                        <h3>📄 Download Product Information</h3>
+                        <div class="download-buttons">
+                            <a href="pdf/Sureset_Vascular Acess Safety.pdf" class="download-btn secondary-btn"
+                                target="_blank">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                    </path>
+                                </svg>
+                                Download Full Product Catalog
+                            </a>
+                        </div>
+                    </div>
 
                     <button class="submit-btn" id="closeThankYou">Close</button>
                 </div>
@@ -112,7 +125,7 @@
 
     <script>
         const modal = document.getElementById('modalOverlay');
-        const openBtn = document.getElementById('openModalBtn');
+        // openBtn removed for event delegation
         const closeBtn = document.getElementById('closeModalBtn');
         const form = document.getElementById('evaluationForm');
         const formContent = document.getElementById('formContent');
@@ -121,10 +134,12 @@
         const headerSubtitle = document.getElementById('headerSubtitle');
         const invalidEmailDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com', 'icloud.com', 'mail.com', 'protonmail.com', 'yandex.com', 'zoho.com'];
 
-        openBtn.addEventListener('click', () => {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            showForm();
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('#openModalBtn') || e.target.closest('.open-modal-btn')) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                showForm();
+            }
         });
 
         function closeModal() {
@@ -150,7 +165,7 @@
             formContent.classList.remove('hidden');
             thankYouContent.classList.remove('active');
             headerTitle.textContent = 'Request Evaluation Samples';
-            headerSubtitle.textContent = 'Complete the form below to receive Alera Medtech evaluation samples';
+            headerSubtitle.textContent = 'Complete the form below to receive SureSet™ evaluation samples';
         }
 
         function showThankYou() {
@@ -349,14 +364,15 @@
     <!-- Hero Section -->
     <section class="sureset-hero-section">
         <div class="container">
-            <h1 class="sureset-title-main">Alera Medtech is a division of Alera Medtech –</h1>
+            <h1 class="sureset-title-main">SureSet™ is a division of Alera Medtech –</h1>
             <p class="sureset-subtitle-text">
-                A place for pioneers, inventors, and creative thinkers – those with a passion for advancing healthcare
+                a place for pioneers, inventors, and creative thinkers – those with a passion for advancing healthcare
                 and improving the life of millions globally.
             </p>
         </div>
     </section>
 
+    <!-- Headquarters Section -->
     <!-- Locations Section -->
     <section class="sureset-headquarters-section">
         <div class="container">
@@ -485,12 +501,17 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <div id="footer-placeholder"></div>
+    <script src="js/components.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    
-<script src="js/components.js"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navbarMenu');
+            menu.classList.toggle('navbar-menu-active');
+        }
+    </script>
 </body>
 
 </html>
-

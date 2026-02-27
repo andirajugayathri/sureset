@@ -36,50 +36,30 @@
     <div class="navbar-container">
         <div class="navbar-content">
             <a href="index.html" class="navbar-logo-link">
-                <img src="img/aleramedtech_logo.png" alt="Alera Medtech Logo" class="navbar-logo">
+                <img src="img/SureSet logo.png" alt="Alera Medtech Logo" class="navbar-logo">
             </a>
-            <button class="navbar-toggle" onclick="toggleMenu()">
+            <button class="navbar-toggle" id="mobileMenuToggle">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="navbar-menu" id="navbarMenu">
                 <li class="navbar-menu-item"><a href="index.html" class="navbar-menu-link">Home</a></li>
-                <li class="navbar-menu-item dropdown"><a href="about.html" class="navbar-menu-link">About Us</a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-header">Our Team</li>
-                        <li><a class="dropdown-item" href="our-team.html" target="_blank">Executive Leadership</a>
-                        </li>
-                        <li><a class="dropdown-item" href="medical-advisors.html">Medical Advisors</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="navbar-menu-item dropdown">
-                    <a href="#" class="navbar-menu-link">Our Products</a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-header">Neurology</li>
-                        <li><a class="dropdown-item" href="dpncheck-overview.html" target="_blank">DPNCheck overview</a>
-                        </li>
-                        <li><a class="dropdown-item" href="cernode-overview.html">Cernode Neurology Products</a>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li class="dropdown-header">Critical Care</li>
-                        <li><a class="dropdown-item" href="sureset-overview.html" target="_blank">SureSet Securement
-                                Devices</a></li>
-                        <li><a class="dropdown-item" href="dermaflush-overview.html">Dermaflush Prefilled Flush
-                                Syringes</a></li>
-                        <li><a class="dropdown-item" href="clyncap.html">ClynCap Infection Control</a></li>
-                    </ul>
+                <li class="navbar-menu-item"><a href="about.html" class="navbar-menu-link">About Us</a> </li>
+                <li class="navbar-menu-item">
+                    <a href="safetrak-technology.html" class="navbar-menu-link">SafeTrak™ Technology</a>
                 </li>
                 <li class="navbar-menu-item dropdown">
                     <a href="resources.html" class="navbar-menu-link">Resources</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="ifu.html" target="_blank">IFU</a></li>
-                        <li><a class="dropdown-item" href="brochures.html" target="_blank">Brochures</a></li>
-                        <li><a class="dropdown-item" href="whitepapers.html" target="_blank">Whitepapers</a>
+                        <li><a class="dropdown-item" href="ifu.html">IFU</a></li>
+                        <li><a class="dropdown-item" href="brochures.html">Brochures</a></li>
+                        <li><a class="dropdown-item" href="whitepapers.html">Whitepapers</a>
                         </li>
                     </ul>
                 </li>
                 <li class="navbar-menu-item"><a href="contact.html" class="navbar-menu-link">Contact Us</a></li>
+                <li class="navbar-menu-item">
+                    <button class="navbar-cta-button" id="openModalBtn">Request Evaluation Samples</button>
+                </li>
             </ul>
         </div>
     </div>

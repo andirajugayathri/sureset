@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alera Medtech </title>
+    <title>SureSet </title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
@@ -20,7 +20,7 @@
 
             <div class="form-header">
                 <h1 id="headerTitle">Request Evaluation Samples</h1>
-                <p id="headerSubtitle">Complete the form below to receive Alera Medtech evaluation samples</p>
+                <p id="headerSubtitle">Complete the form below to receive SureSet™ evaluation samples</p>
             </div>
 
             <div class="form-body">
@@ -63,11 +63,10 @@
                             <label for="productType">Product Type <span class="required">*</span></label>
                             <select id="productType" name="productType" required>
                                 <option value="">-- Select Product Type --</option>
-                                <option value="sureset-peripheral-iv">Alera Medtech Peripheral IV Securement Device
-                                </option>
-                                <option value="sureset-picc">Alera Medtech PICC Line Securement</option>
-                                <option value="sureset-central-line">Alera Medtech Central Line Securement</option>
-                                <option value="sureset-dialysis">Alera Medtech Dialysis Catheter Securement</option>
+                                <option value="sureset-peripheral-iv">SureSet™ Peripheral IV Securement Device</option>
+                                <option value="sureset-picc">SureSet™ PICC Line Securement</option>
+                                <option value="sureset-central-line">SureSet™ Central Line Securement</option>
+                                <option value="sureset-dialysis">SureSet™ Dialysis Catheter Securement</option>
                                 <option value="multiple">Multiple Products</option>
                             </select>
                             <span class="error-message" id="productTypeError">Please select a product type</span>
@@ -102,6 +101,20 @@
                     <h2>Thank You!</h2>
                     <p>Your request has been submitted successfully. Our team will contact you within 24-48 hours.</p>
 
+                    <div class="download-section">
+                        <h3>📄 Download Product Information</h3>
+                        <div class="download-buttons">
+                            <a href="pdf/Sureset_Vascular Acess Safety.pdf" class="download-btn secondary-btn"
+                                target="_blank">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                    </path>
+                                </svg>
+                                Download Full Product Catalog
+                            </a>
+                        </div>
+                    </div>
 
                     <button class="submit-btn" id="closeThankYou">Close</button>
                 </div>
@@ -111,7 +124,7 @@
 
     <script>
         const modal = document.getElementById('modalOverlay');
-        const openBtn = document.getElementById('openModalBtn');
+        // openBtn removed for event delegation
         const closeBtn = document.getElementById('closeModalBtn');
         const form = document.getElementById('evaluationForm');
         const formContent = document.getElementById('formContent');
@@ -120,10 +133,12 @@
         const headerSubtitle = document.getElementById('headerSubtitle');
         const invalidEmailDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com', 'icloud.com', 'mail.com', 'protonmail.com', 'yandex.com', 'zoho.com'];
 
-        openBtn.addEventListener('click', () => {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            showForm();
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('#openModalBtn') || e.target.closest('.open-modal-btn')) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                showForm();
+            }
         });
 
         function closeModal() {
@@ -149,7 +164,7 @@
             formContent.classList.remove('hidden');
             thankYouContent.classList.remove('active');
             headerTitle.textContent = 'Request Evaluation Samples';
-            headerSubtitle.textContent = 'Complete the form below to receive Alera Medtech evaluation samples';
+            headerSubtitle.textContent = 'Complete the form below to receive SureSet™ evaluation samples';
         }
 
         function showThankYou() {
@@ -350,7 +365,7 @@
         <div class="container">
             <h2 class="sureset-faq-title">Frequently Asked Questions</h2>
             <p class="sureset-faq-subtitle">
-                Here are some commonly asked questions about Alera Medtech Securement. If you're looking for additional
+                Here are some commonly asked questions about SureSet Securement. If you're looking for additional
                 information, please contact us <a href="contact.html">here</a>.
             </p>
 
@@ -360,13 +375,12 @@
                         <div class="sureset-faq-question">
                             <div class="d-flex align-items-center">
                                 <span class="sureset-faq-number">&#8599;</span>
-                                <span>Is Alera Medtech compatible with all forms of PIV catheters?</span>
+                                <span>Is SureSet compatible with all forms of PIV catheters?</span>
                             </div>
                             <span class="sureset-faq-toggle">&#8964;</span>
                         </div>
                         <div class="sureset-faq-answer">
-                            <p>Yes, Alera Medtech is designed to be compatible with all standard PIV catheters. The
-                                device
+                            <p>Yes, SureSet is designed to be compatible with all standard PIV catheters. The device
                                 accommodates various catheter sizes and types commonly used in clinical settings.</p>
                         </div>
                     </div>
@@ -375,15 +389,13 @@
                         <div class="sureset-faq-question">
                             <div class="d-flex align-items-center">
                                 <span class="sureset-faq-number">&#8599;</span>
-                                <span>Is the Alera Medtech Peripheral IV stabilization device appropriate for all
-                                    patients
+                                <span>Is the SureSet Peripheral IV stabilization device appropriate for all patients
                                     with PIVs?</span>
                             </div>
                             <span class="sureset-faq-toggle">&#8964;</span>
                         </div>
                         <div class="sureset-faq-answer">
-                            <p>Alera Medtech is suitable for most patients requiring PIV stabilization. However,
-                                individual
+                            <p>SureSet is suitable for most patients requiring PIV stabilization. However, individual
                                 patient assessment should be conducted to ensure appropriateness based on skin condition
                                 and clinical needs.</p>
                         </div>
@@ -393,16 +405,14 @@
                         <div class="sureset-faq-question">
                             <div class="d-flex align-items-center">
                                 <span class="sureset-faq-number">&#8599;</span>
-                                <span>Any special tips or instructions for fitting the Alera Medtech PIV stabilization
-                                    device
+                                <span>Any special tips or instructions for fitting the SureSet PIV stabilization device
                                     onto the catheter?</span>
                             </div>
                             <span class="sureset-faq-toggle">&#8964;</span>
                         </div>
                         <div class="sureset-faq-answer">
                             <p>Follow the provided instructions for use. Ensure the catheter is properly inserted and
-                                secured before applying the Alera Medtech device. The device should fit snugly without
-                                causing
+                                secured before applying the SureSet device. The device should fit snugly without causing
                                 discomfort to the patient.</p>
                         </div>
                     </div>
@@ -411,12 +421,12 @@
                         <div class="sureset-faq-question">
                             <div class="d-flex align-items-center">
                                 <span class="sureset-faq-number">&#8599;</span>
-                                <span>Is Alera Medtech reusable?</span>
+                                <span>Is SureSet reusable?</span>
                             </div>
                             <span class="sureset-faq-toggle">&#8964;</span>
                         </div>
                         <div class="sureset-faq-answer">
-                            <p>No, Alera Medtech is a single-use device designed for one-time application to maintain
+                            <p>No, SureSet is a single-use device designed for one-time application to maintain
                                 sterility and optimal performance.</p>
                         </div>
                     </div>
@@ -425,31 +435,18 @@
                         <div class="sureset-faq-question">
                             <div class="d-flex align-items-center">
                                 <span class="sureset-faq-number">&#8599;</span>
-                                <span>Do the device and catheter have to be removed together?</span>
+                                <span>Is SureSet Latex free?</span>
                             </div>
                             <span class="sureset-faq-toggle">&#8964;</span>
                         </div>
                         <div class="sureset-faq-answer">
-                            <p>No, the Alera Medtech device can be removed independently from the catheter if needed for
-                                assessment or dressing changes.</p>
+                            <p>Yes, SureSet is latex-free to minimize the risk of allergic reactions in sensitive
+                                patients.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-6">
-                    <div class="sureset-faq-item">
-                        <div class="sureset-faq-question">
-                            <div class="d-flex align-items-center">
-                                <span class="sureset-faq-number">&#8599;</span>
-                                <span>Is Alera Medtech Latex free?</span>
-                            </div>
-                            <span class="sureset-faq-toggle">&#8964;</span>
-                        </div>
-                        <div class="sureset-faq-answer">
-                            <p>Yes, Alera Medtech is latex-free to minimize the risk of allergic reactions in sensitive
-                                patients.</p>
-                        </div>
-                    </div>
 
                     <div class="sureset-faq-item">
                         <div class="sureset-faq-question">
@@ -460,7 +457,7 @@
                             <span class="sureset-faq-toggle">&#8964;</span>
                         </div>
                         <div class="sureset-faq-answer">
-                            <p>No, tubing changes can typically be performed without removing the Alera Medtech device,
+                            <p>No, tubing changes can typically be performed without removing the SureSet device,
                                 allowing for continued stabilization during routine care.</p>
                         </div>
                     </div>
@@ -469,14 +466,12 @@
                         <div class="sureset-faq-question">
                             <div class="d-flex align-items-center">
                                 <span class="sureset-faq-number">&#8599;</span>
-                                <span>Do I have to use a special skin prep with the Alera Medtech stabilization
-                                    device?</span>
+                                <span>Do I have to use a special skin prep with the SureSet stabilization device?</span>
                             </div>
                             <span class="sureset-faq-toggle">&#8964;</span>
                         </div>
                         <div class="sureset-faq-answer">
-                            <p>Follow your facility's standard skin preparation protocols. Alera Medtech is compatible
-                                with
+                            <p>Follow your facility's standard skin preparation protocols. SureSet is compatible with
                                 commonly used skin prep solutions.</p>
                         </div>
                     </div>
@@ -485,7 +480,7 @@
                         <div class="sureset-faq-question">
                             <div class="d-flex align-items-center">
                                 <span class="sureset-faq-number">&#8599;</span>
-                                <span>Does Alera Medtech have a version for children and infants?</span>
+                                <span>Does SureSet have a version for children and infants?</span>
                             </div>
                             <span class="sureset-faq-toggle">&#8964;</span>
                         </div>
@@ -504,8 +499,7 @@
                             <span class="sureset-faq-toggle">&#8964;</span>
                         </div>
                         <div class="sureset-faq-answer">
-                            <p>Yes, Alera Medtech can be used on various PIV insertion sites including the hand,
-                                forearm, and
+                            <p>Yes, SureSet can be used on various PIV insertion sites including the hand, forearm, and
                                 other appropriate locations as determined by clinical assessment.</p>
                         </div>
                     </div>
@@ -552,7 +546,7 @@
                     style="background-image: url('img/bg\ get\ in\ touch.png'); background-size: cover; background-repeat: no-repeat; align-content: center;">
                     <div class="sureset-contact-content">
                         <h2 class="sureset-contact-title">
-                            If you have further questions about Alera Medtech Securement, please get in touch.
+                            If you have further questions about SureSet Securement, please get in touch.
                         </h2>
                         <a href="contact.html"><button class="sureset-contact-button">Contact Us</button></a>
                     </div>
@@ -572,12 +566,11 @@
         });
     </script>
 
+    <!-- Footer -->
     <div id="footer-placeholder"></div>
+    <script src="js/components.js"></script>
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-            
-<script src="js/components.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
-
