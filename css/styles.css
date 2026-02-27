@@ -442,7 +442,7 @@ body {
 
 /* Hero Section Styles */
 .hero-section {
-    background: linear-gradient(135deg, #E3E9FF 0%, #ffffff 100%);
+    
     padding: 80px 0;
     position: relative;
     overflow: hidden;
@@ -1291,6 +1291,7 @@ body {
     padding: 12px 35px;
     border: none;
     border-radius: 5px;
+    text-decoration: none;
     font-weight: 600;
     font-size: 1.05rem;
     cursor: pointer;
