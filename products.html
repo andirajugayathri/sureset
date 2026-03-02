@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | SureSet</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ===== INTRO CONTENT SECTION ===== */
+        .prod-intro {
+            background: #fff;
+            padding: 70px 0;
+            border-bottom: 1px solid #e0e5f0;
+        }
+
+        .prod-intro-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e8eeff;
+            color: #003BF2;
+            border: 1px solid #b3c6ff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 22px;
+        }
+
+        .prod-intro-headline {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: #1a1a2e;
+            line-height: 1.3;
+            margin-bottom: 18px;
+        }
+
+        .prod-intro-headline span {
+            color: #003BF2;
+        }
+
+        .prod-intro-right-card {
+            background: #f6f8ff;
+            border: 1px solid #dce5ff;
+            border-radius: 16px;
+            padding: 36px;
+            height: 100%;
+        }
+
+        .prod-intro-desc {
+            font-size: 1rem;
+            color: #6b7280;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .prod-intro-quote {
+            background: #003BF2;
+            color: #fff;
+            border-radius: 10px;
+            padding: 16px 22px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .prod-intro-desc2 {
+            font-size: 0.97rem;
+            color: #6b7280;
+            line-height: 1.75;
+            margin-bottom: 24px;
+        }
+
+        .prod-intro-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .prod-intro-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: #fff;
+            border: 1.5px solid #003BF2;
+            color: #003BF2;
+            border-radius: 50px;
+            padding: 7px 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .prod-intro-chip i {
+            color: #003BF2;
+            font-size: 0.8rem;
+        }
+
+        /* ===== SECTION LABEL ===== */
+        .section-label {
+            text-align: center;
+            padding: 60px 0 10px;
+        }
+
+        .section-label .overline {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #003BF2;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-label h3 {
+            color: #1a1a2e;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        /* ===== PRODUCT PANELS ===== */
+        .prod-panel {
+            padding: 70px 0;
+            border-bottom: 1px solid #e8eef6;
+        }
+
+        .prod-panel:last-of-type {
+            border-bottom: none;
+        }
+
+        .prod-panel.reverse .prod-img-col {
+            order: 2;
+        }
+
+        .prod-panel.reverse .prod-text-col {
+            order: 1;
+        }
+
+        /* Circular image frame */
+        .prod-circle-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .prod-circle-ring {
+            position: relative;
+            width: 380px;
+            height: 380px;
+            max-width: 100%;
+            flex-shrink: 0;
+        }
+
+        .prod-circle-ring::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 3px dashed rgba(0, 59, 242, 0.3);
+            animation: spin-slow 18s linear infinite;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .prod-circle-ring::after {
+            content: '';
+            position: absolute;
+            inset: 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e8eeff, #f0f4ff);
+            z-index: 0;
+        }
+
+        @keyframes spin-slow {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Clipping wrapper inside the ring */
+        .prod-circle-inner {
+            position: absolute;
+            inset: 22px;
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 2;
+            box-shadow: 0 12px 40px rgba(26, 26, 46, 0.18);
+        }
+
+        .prod-circle-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Accent badge on circle */
+        .prod-circle-badge {
+            position: absolute;
+            bottom: 0;
+            right: auto;
+            z-index: 5;
+            background: #003BF2;
+            color: #fff;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            box-shadow: 0 4px 16px rgba(26, 26, 46, 0.25);
+        }
+
+        .prod-circle-badge i {
+            color: #ffffff;
+            margin-right: 6px;
+        }
+
+        /* Floating dots */
+        .prod-float-dot {
+            position: absolute;
+            border-radius: 50%;
+            background: #003BF2;
+            opacity: 0.15;
+        }
+
+        /* Text column */
+        .prod-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(26, 26, 46, 0.06);
+            line-height: 1;
+            margin-bottom: -10px;
+        }
+
+        .prod-name {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+
+        .prod-cat {
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #003BF2;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .prod-desc {
+            color: #6b7280;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin-bottom: 24px;
+        }
+
+        /* Circle bullet list */
+        .prod-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px;
+        }
+
+        .prod-bullets li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 14px;
+            color: #6b7280;
+            font-size: 1rem;
+        }
+
+        .bullet-circle {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #003BF2, #0028c4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.7rem;
+            margin-top: 1px;
+            box-shadow: 0 3px 10px rgba(0, 59, 242, 0.3);
+        }
+
+        /* Tagline box */
+        .prod-tagline {
+            background: linear-gradient(135deg, #eef1ff, #e4eaff);
+            border-left: 4px solid #003BF2;
+            border-radius: 0 10px 10px 0;
+            padding: 14px 20px;
+            font-size: 0.95rem;
+            color: #1a1a2e;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        /* ===== CTA STRIP ===== */
+        .prod-cta-strip {
+            background: linear-gradient(135deg, #172B54, #1d3d72);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .prod-cta-strip h3 {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .prod-cta-strip p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 28px;
+        }
+
+        .prod-cta-btn {
+            background: #2e82ed;
+            color: #fff;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .prod-cta-btn:hover {
+            background: #1a5cbe;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 991px) {
+            .prod-circle-ring {
+                width: 280px;
+                height: 280px;
+            }
+
+            .prod-panel.reverse .prod-img-col {
+                order: 0;
+            }
+
+            .prod-panel.reverse .prod-text-col {
+                order: 0;
+            }
+
+            .prod-name {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-container">
+            <button class="close-btn" id="closeModalBtn" aria-label="Close"></button>
+            <div class="form-header">
+                <h1 id="headerTitle">Request Evaluation Samples</h1>
+                <p id="headerSubtitle">Complete the form below to receive SureSet™ evaluation samples</p>
+            </div>
+            <div class="form-body">
+                <div class="form-content" id="formContent">
+                    <form id="evaluationForm" novalidate>
+                        <div class="form-group"><label for="fullName">Full Name <span
+                                    class="required">*</span></label><input type="text" id="fullName" name="fullName"
+                                required><span class="error-message" id="fullNameError">Please enter your full
+                                name</span></div>
+                        <div class="form-group"><label for="email">Work Email <span
+                                    class="required">*</span></label><input type="email" id="email" name="email"
+                                required><span class="error-message" id="emailError">Please enter a valid work email
+                                address</span></div>
+                        <div class="form-group"><label for="designation">Designation <span
+                                    class="required">*</span></label><input type="text" id="designation"
+                                name="designation" required
+                                placeholder="e.g., Nurse Manager, Physician, Clinical Director"><span
+                                class="error-message" id="designationError">Please enter your designation</span></div>
+                        <div class="form-group"><label for="department">Department <span
+                                    class="required">*</span></label><input type="text" id="department"
+                                name="department" required placeholder="e.g., Emergency, ICU, Cardiology"><span
+                                class="error-message" id="departmentError">Please enter your department</span></div>
+                        <div class="form-group"><label for="facilityName">Hospital/Clinic Name <span
+                                    class="required">*</span></label><input type="text" id="facilityName"
+                                name="facilityName" required><span class="error-message" id="facilityNameError">Please
+                                enter your hospital or clinic name</span></div>
+                        <div class="form-group"><label for="productType">Product Type <span
+                                    class="required">*</span></label>
+                            <select id="productType" name="productType" required>
+                                <option value="">-- Select Product Type --</option>
+                                <option value="sureset-peripheral-iv">SureSet™ Peripheral IV Securement Device</option>
+                                <option value="sureset-picc">SureSet™ PICC Line Securement</option>
+                                <option value="sureset-central-line">SureSet™ Central Line Securement</option>
+                                <option value="sureset-dialysis">SureSet™ Dialysis Catheter Securement</option>
+                                <option value="multiple">Multiple Products</option>
+                            </select>
+                            <span class="error-message" id="productTypeError">Please select a product type</span>
+                        </div>
+                        <div class="form-group"><label for="phone">Phone Number <span
+                                    class="required">*</span></label><input type="tel" id="phone" name="phone" required
+                                placeholder="+1 (555) 123-4567"><span class="error-message" id="phoneError">Please enter
+                                a valid phone number</span></div>
+                        <div class="form-group"><label for="estimatedVolume">Estimated Monthly Volume</label><input
+                                type="text" id="estimatedVolume" name="estimatedVolume" placeholder="e.g., 500 units">
+                        </div>
+                        <div class="form-group"><label for="additionalInfo">Additional Information</label><textarea
+                                id="additionalInfo" name="additionalInfo"
+                                placeholder="Please share any specific requirements or questions..."></textarea></div>
+                        <button type="submit" class="submit-btn">Submit Request</button>
+                    </form>
+                </div>
+                <div class="thank-you-content" id="thankYouContent">
+                    <div class="thank-you-icon">
+                        <div class="checkmark"></div>
+                    </div>
+                    <h2>Thank You!</h2>
+                    <p>Your request has been submitted successfully. Our team will contact you within 24-48 hours.</p>
+                    <div class="download-section">
+                        <h3>📄 Download Product Information</h3>
+                        <div class="download-buttons">
+                            <a href="pdf/Sureset_Vascular Acess Safety.pdf" class="download-btn secondary-btn"
+                                target="_blank">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                    </path>
+                                </svg>
+                                Download Full Product Catalog
+                            </a>
+                        </div>
+                    </div>
+                    <button class="submit-btn" id="closeThankYou">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modalOverlay');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const form = document.getElementById('evaluationForm');
+        const formContent = document.getElementById('formContent');
+        const thankYouContent = document.getElementById('thankYouContent');
+        const headerTitle = document.getElementById('headerTitle');
+        const headerSubtitle = document.getElementById('headerSubtitle');
+        const invalidEmailDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com', 'icloud.com', 'mail.com', 'protonmail.com', 'yandex.com', 'zoho.com'];
+        document.addEventListener('click', e => { if (e.target.closest('#openModalBtn') || e.target.closest('.open-modal-btn')) { modal.classList.add('active'); document.body.style.overflow = 'hidden'; showForm(); } });
+        function closeModal() { modal.classList.remove('active'); document.body.style.overflow = ''; }
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
+        function showForm() { formContent.classList.remove('hidden'); thankYouContent.classList.remove('active'); headerTitle.textContent = 'Request Evaluation Samples'; headerSubtitle.textContent = 'Complete the form below to receive SureSet™ evaluation samples'; }
+        function showThankYou() { formContent.classList.add('hidden'); thankYouContent.classList.add('active'); headerTitle.textContent = 'Request Submitted!'; headerSubtitle.textContent = 'Access your resources below'; document.querySelector('.modal-container').scrollTop = 0; }
+        document.getElementById('closeThankYou').addEventListener('click', () => { closeModal(); setTimeout(() => { showForm(); form.reset(); }, 300); });
+        function validateEmail(email) { const p = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; if (!p.test(email)) return { valid: false, message: 'Please enter a valid email address' }; const d = email.split('@')[1].toLowerCase(); if (invalidEmailDomains.includes(d)) return { valid: false, message: 'Please use a work email address.' }; return { valid: true }; }
+        function validatePhone(phone) { return /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/.test(phone.replace(/\s/g, '')); }
+        function showError(id, msg) { const f = document.getElementById(id), e = document.getElementById(id + 'Error'); f.classList.add('error'); e.textContent = msg; e.classList.add('show'); }
+        function clearError(id) { const f = document.getElementById(id), e = document.getElementById(id + 'Error'); f.classList.remove('error'); e.classList.remove('show'); }
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('email').addEventListener('blur', function () { const v = validateEmail(this.value.trim()); if (this.value.trim() && !v.valid) showError('email', v.message); else clearError('email'); });
+            document.getElementById('phone').addEventListener('blur', function () { if (this.value.trim() && !validatePhone(this.value.trim())) showError('phone', 'Please enter a valid phone number'); else clearError('phone'); });
+            form.querySelectorAll('input, select, textarea').forEach(f => f.addEventListener('input', function () { clearError(this.id); }));
+            form.addEventListener('submit', function (e) {
+                e.preventDefault(); let ok = true;
+                const checks = [['fullName', 'Please enter your full name'], ['designation', 'Please enter your designation'], ['department', 'Please enter your department'], ['facilityName', 'Please enter your hospital or clinic name']];
+                checks.forEach(([id, msg]) => { if (!document.getElementById(id).value.trim()) { showError(id, msg); ok = false; } else clearError(id); });
+                const ev = validateEmail(document.getElementById('email').value.trim());
+                if (!document.getElementById('email').value.trim() || !ev.valid) { showError('email', ev.message || 'Please enter a valid work email address'); ok = false; } else clearError('email');
+                if (!document.getElementById('productType').value) { showError('productType', 'Please select a product type'); ok = false; } else clearError('productType');
+                if (!document.getElementById('phone').value.trim() || !validatePhone(document.getElementById('phone').value.trim())) { showError('phone', 'Please enter a valid phone number'); ok = false; } else clearError('phone');
+                if (ok) showThankYou(); else { const fe = form.querySelector('.error'); if (fe) fe.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            });
+        });
+    </script>
+
+    <!-- Hero Banner -->
+    <section class="sub-heros d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb sub-hero-breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Products</li>
+                        </ol>
+                    </nav>
+                    <h1 class="sub-hero-title">Our Products</h1>
+                    <p class="sub-hero-text">A unified securement platform engineered to standardize catheter
+                        stabilization across multiple clinical applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Content Section -->
+    <section class="prod-intro">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <!-- Left: Headline -->
+                <div class="col-lg-5">
+                    <span class="prod-intro-eyebrow"><i class="fas fa-circle-dot"></i>Safe-Track Strain Relief
+                        Technology™</span>
+                    <h2 class="prod-intro-headline">
+                        Tape is inconsistent.<br>
+                        Sutures are invasive.<br>
+                        Movement is inevitable.<br>
+                        <span>SureSet™ changes<br>the equation.</span>
+                    </h2>
+                    <!-- <div class="prod-intro-divider"></div> -->
+                </div>
+                <!-- Right: Description Card -->
+                <div class="col-lg-7">
+                    <div class="prod-intro-right-card">
+                        <p class="prod-intro-desc">Powered by proprietary <strong>Safe-Track Strain Relief
+                                Technology™</strong>, SureSet™ actively manages tubing stress instead of simply holding
+                            it in place. The result is controlled stabilization designed to reduce catheter migration,
+                            minimize unintended dislodgement, and simplify catheter management across clinical settings.
+                        </p>
+                        <div class="prod-intro-quote">
+                            “Securement isn’t an accessory. It’s engineered.”
+                        </div>
+                        <p class="prod-intro-desc2">SureSet™ is not a single product — it’s a unified securement
+                            platform engineered to standardize catheter stabilization across multiple clinical
+                            applications.</p>
+                        <div class="prod-intro-chips">
+                            <span class="prod-intro-chip"><i class="fas fa-check-circle"></i>Peripheral IV</span>
+                            <span class="prod-intro-chip"><i class="fas fa-check-circle"></i>Urinary Catheters</span>
+                            <span class="prod-intro-chip"><i class="fas fa-check-circle"></i>Hemodialysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Label -->
+    <div class="section-label">
+        <span class="overline">Our Products</span>
+        <h3>One Technology. Multiple Clinical Applications.</h3>
+    </div>
+
+    <!-- ==== PRODUCT 1: Loop ==== -->
+    <section class="prod-panel">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 prod-img-col">
+                    <div class="prod-circle-wrap">
+                        <div class="prod-circle-ring">
+                            <div class="prod-circle-inner">
+                                <img src="img/image.png" alt="SureSet Loop IV Securement" class="prod-circle-img">
+                            </div>
+                        </div>
+                        <div class="prod-circle-badge"><i class="fas fa-hand-holding-medical"></i>IV Securement</div>
+                    </div>
+                </div>
+                <div class="col-lg-6 prod-text-col">
+                    <div class="prod-number">01</div>
+                    <h2 class="prod-name">SureSet™ Loop</h2>
+                    <span class="prod-cat">IV Securement</span>
+                    <p class="prod-desc">Precision stabilization for peripheral IV therapy.</p>
+                    <ul class="prod-bullets">
+                        <li><span class="bullet-circle"><i class="fas fa-check"></i></span><span>Designed for peripheral
+                                IV catheters</span></li>
+                        <li><span class="bullet-circle"><i class="fas fa-check"></i></span><span>Stabilizes both the
+                                catheter hub and infusion tubing</span></li>
+                        <li><span class="bullet-circle"><i class="fas fa-check"></i></span><span>Helps maintain catheter
+                                position during routine patient movement</span></li>
+                    </ul>
+                    <div class="prod-tagline">Built for dependable IV stabilization in dynamic care environments.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==== PRODUCT 2: Foley ==== -->
+    <section class="prod-panel reverse" style="background:#f8fbff;">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 prod-text-col">
+                    <div class="prod-number">02</div>
+                    <h2 class="prod-name">SureSet™ Foley</h2>
+                    <span class="prod-cat">Urinary Catheter Securement</span>
+                    <p class="prod-desc">Controlled traction management for urinary catheterization.</p>
+                    <ul class="prod-bullets">
+                        <li><span class="bullet-circle"><i class="fas fa-check"></i></span><span>Designed for Foley and
+                                indwelling urinary catheters</span></li>
+                        <li><span class="bullet-circle"><i class="fas fa-check"></i></span><span>Reduces pulling forces
+                                at the exit site</span></li>
+                        <li><span class="bullet-circle"><i class="fas fa-check"></i></span><span>Supports stable
+                                positioning during repositioning and ambulation</span></li>
+                    </ul>
+                    <div class="prod-tagline">Stability that supports confident urinary catheter management.</div>
+                </div>
+                <div class="col-lg-6 prod-img-col">
+                    <div class="prod-circle-wrap">
+
+                        <div class="prod-circle-ring">
+                            <div class="prod-circle-inner">
+                                <img src="img/image.png" alt="SureSet Foley Urinary Securement" class="prod-circle-img">
+                            </div>
+                        </div>
+                        <div class="prod-circle-badge"><i class="fas fa-procedures"></i>Urinary Securement</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==== PRODUCT 3: Dialysis ==== -->
+    <section class="prod-panel">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 prod-img-col">
+                    <div class="prod-circle-wrap">
+                        <div class="prod-circle-ring">
+                            <div class="prod-circle-inner">
+                                <img src="img/image.png" alt="SureSet Dialysis Securement" class="prod-circle-img">
+                            </div>
+                        </div>
+                        <div class="prod-circle-badge"><i class="fas fa-heartbeat"></i>Hemodialysis</div>
+                    </div>
+                </div>
+                <div class="col-lg-6 prod-text-col">
+                    <div class="prod-number">03</div>
+                    <h2 class="prod-name">SureSet™ Dialysis</h2>
+                    <span class="prod-cat">Hemodialysis Securement</span>
+                    <p class="prod-desc">Enhanced stabilization for high-demand dialysis environments.</p>
+                    <ul class="prod-bullets">
+                        <li><span class="bullet-circle"><i class="fas fa-check"></i></span><span>Designed for short-term
+                                hemodialysis catheters</span></li>
+                        <li><span class="bullet-circle"><i class="fas fa-check"></i></span><span>Secures catheter hubs
+                                and connected bloodlines</span></li>
+                        <li><span class="bullet-circle"><i class="fas fa-check"></i></span><span>Helps minimize movement
+                                during dialysis sessions</span></li>
+                    </ul>
+                    <div class="prod-tagline">Built for reliable catheter control during intensive dialysis therapy.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div id="footer-placeholder"></div>
+    <script src="js/components.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
