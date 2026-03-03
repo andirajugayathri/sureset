@@ -443,7 +443,7 @@ body {
 
 /* Hero Section Styles */
 .hero-section {
-    
+
     padding: 80px 0;
     position: relative;
     overflow: hidden;
@@ -892,10 +892,10 @@ body {
 }
 
 .benefits-text-area {
-  padding-left: 0;
-        padding-top: 20px;
-        width: 100%;
-        text-align: center;
+    padding-left: 0;
+    padding-top: 20px;
+    width: 100%;
+    text-align: center;
 }
 
 .benefits-main-heading {
@@ -923,7 +923,7 @@ body {
 }
 
 .benefits-stat-box {
-       background: white;
+    background: white;
     padding: 30px 18px;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
@@ -951,12 +951,13 @@ body {
     margin: 0;
     text-align: center;
 }
+
 @media (max-width: 992px) {
     .benefits-stats-container {
         grid-template-columns: 1fr;
         margin-left: 0;
     }
-    
+
 }
 
 /* Introducing Section Styles */
@@ -1079,6 +1080,7 @@ body {
     color: #0d28ff;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 @media (max-width: 992px) {
     .introducing-video-overlay {
         position: relative;
@@ -1527,21 +1529,21 @@ body {
 }
 
 .sub-heror {
-    min-height: 500px;
+    min-height: 400px;
     background:
         url("../img/resources\ banner.png") center / cover no-repeat;
     color: #ffffff;
 }
 
 .sub-heros {
-    min-height: 500px;
+    min-height: 400px;
     background:
         url("../img/tech-banner.png") center / cover no-repeat;
     color: #ffffff;
 }
 
 .sub-heroc {
-    min-height: 500px;
+    min-height: 400px;
     background:
         url("../img/banner\ contact.png") center / cover no-repeat;
     color: #ffffff;
@@ -1581,6 +1583,21 @@ body {
     color: #ffffff;
 }
 
+@media (max-width: 767px) {
+    .sub-hero-breadcrumb {
+        justify-content: center;
+    }
+
+    .sub-hero-title {
+        text-align: center;
+    }
+
+    .sub-hero-text {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 
 
 /* Modal Overlay */
